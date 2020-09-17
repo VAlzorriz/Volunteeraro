@@ -14,10 +14,10 @@ let sqlDb = sqlDbFactory({
     client: 'pg',
     debug: true,
     connection: {
-        host : 'ec2-3-215-83-17.compute-1.amazonaws.com',
-        user : 'qghvrokxcwzqab',
-        password : 'b6f3bb0a9751b77fdfe7c97f6b18353e341fe12105a2edb8cd4990a81b94d801',
-        database : 'd15a9qb5nd3lqe'
+        host : 'ec2-54-146-142-58.compute-1.amazonaws.com',
+        user : 'inuxgmhlbehlmn',
+        password : '25ca04adc821fe062b75fe4c3e4b606af9b9a6d929129a5d2acae0c0263172d6',
+        database : 'dkhseckoat26t'
       }
     //connection: process.env.DATABASE_URL,
     //ssl: true
