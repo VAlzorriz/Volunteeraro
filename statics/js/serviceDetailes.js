@@ -9,8 +9,8 @@ $(document).ready(() => {
     if (serviceID != null) {
         fetchServices(serviceID);
         fetch2(serviceID);
-        
-        var urlevents='https://hyp-project.herokuapp.com/api/services/'+serviceID+'/events';
+
+        var urlevents = 'https://volunteeraro.herokuapp.com/api/services/' + serviceID + '/events';
         fetchEvents(urlevents);
     }
 });
@@ -91,10 +91,10 @@ function drawServiceDetailes(data) {
 
 function fetchServices(serviceId) {
     jQuery.ajax({
-        url: 'https://hyp-project.herokuapp.com/api/services/' + serviceId,
+        url: 'https://volunteeraro.herokuapp.com/api/services/' + serviceId,
         type: 'GET',
         dataType: 'json',
-        Origin: "https://hyp-project.herokuapp.com",
+        Origin: "https://volunteeraro.herokuapp.com",
         success: (data) => {
             console.log('ajax success');
 
@@ -139,10 +139,10 @@ function drawEventDetailes2(data) {
 
 function fetch2(serviceId) {
     jQuery.ajax({
-        url: 'https://hyp-project.herokuapp.com/api/services/' + serviceId + '/volunteers/',
+        url: 'https://volunteeraro.herokuapp.com/api/services/' + serviceId + '/volunteers/',
         type: 'GET',
         dataType: 'json',
-        Origin: "https://hyp-project.herokuapp.com",
+        Origin: "https://volunteeraro.herokuapp.com",
         success: (data) => {
             console.log('ajax success');
 
@@ -163,7 +163,7 @@ function fetchEvents(ApiUrl) {
         url: ApiUrl,
         type: 'GET',
         dataType: 'json',
-        Origin: 'https://hyp-project.herokuapp.com',
+        Origin: 'https://volunteeraro.herokuapp.com',
         success: (data) => {
             console.log('ajax success');
             var s = drawEvents(data);
@@ -183,11 +183,11 @@ function drawEvents(data) {
     var s = '';
     var shortDescription = 'hh';
     var backgroung = 'bg-light';
-   
+
     // /eventDetailes.html?eventID='+data[i].id_activity+'
     if (data.length == 0) {
         s = '<ul class="list-group"> <li class="list-group-item">No Events for this service </li> </ul>'
-;
+            ;
     }
 
 

@@ -10,10 +10,10 @@ $(document).ready(() => {
     if (eventID != null) {
         fetch(parseInt(eventID));
         fetch2(parseInt(eventID));
-        var urlservices='https://hyp-project.herokuapp.com/api/events/'+eventID+'/services';
+        var urlservices = 'https://volunteeraro.herokuapp.com/api/events/' + eventID + '/services';
         fetchServices(urlservices);
-        
-        
+
+
     }
 
 });
@@ -39,10 +39,10 @@ function drawEventDetailes(data) {
 
 function fetch(eventId) {
     jQuery.ajax({
-        url: 'https://hyp-project.herokuapp.com/api/events/' + eventId,
+        url: 'https://volunteeraro.herokuapp.com/api/events/' + eventId,
         type: 'GET',
         dataType: 'json',
-        Origin: "https://hyp-project.herokuapp.com",
+        Origin: "https://volunteeraro.herokuapp.com",
         success: (data) => {
             console.log('ajax success');
 
@@ -85,10 +85,10 @@ function drawEventDetailes2(data) {
 }
 function fetch2(eventId) {
     jQuery.ajax({
-        url: 'https://hyp-project.herokuapp.com/api/events/' + eventId + '/volunteers/',
+        url: 'https://volunteeraro.herokuapp.com/api/events/' + eventId + '/volunteers/',
         type: 'GET',
         dataType: 'json',
-        Origin: "https://hyp-project.herokuapp.com",
+        Origin: "https://volunteeraro.herokuapp.com",
         success: (data) => {
             console.log('ajax success');
 
@@ -108,49 +108,49 @@ function fetch2(eventId) {
 
 function fetchServices(ApiUrl) {
     jQuery.ajax({
-        url: ApiUrl ,
+        url: ApiUrl,
         type: 'GET',
         dataType: 'json',
-        Origin: "https://hyp-project.herokuapp.com",
+        Origin: "https://volunteeraro.herokuapp.com",
         success: (data) => {
             console.log('ajax success');
             var s = drawServices(data);
-            
+
             $('#services').html(s);
         },
-        error: ()=>{
+        error: () => {
             notifyerror("error");
         }
     });
 }
 
- 
+
 
 function drawServices(data) {
-    
-   var s='';
-         
 
-  for (var i = 0; i < data.length; i++) {
+    var s = '';
+
+
+    for (var i = 0; i < data.length; i++) {
         //data.length
-             s = s    +'<div class="col-md-4 padding d-flex align-items-stretch">'
-                      +'<div class="card shadow-sm sechover">'				
-                      +'<a href="/serviceDetailes.html?serviceID='+data[i].id_activity+'"> <img class="img-fluid padding2" src="'+data[i].image+'" alt="'+data[i].image+'"></a>'
-                      +'<div class="card-body">'
-                      +'<h5><b>'+data[i].title+'</b></h5>'
-                      +'<h6 class="card-text">'+data[i].description.substring(0,40)+'...'+' <u class="linkcolor"> <a href="/serviceDetailes.html?serviceID='+data[i].id_activity+'">more</a> </u></h6>'
-                      +'<div class="d-flex justify-content-between align-items-center">  '
-                      +'<small class="text-muted">Service day: '+data[i].service_day+'</small>'
-                      +'</div></div></div></div>'
-                            
-                                 
+        s = s + '<div class="col-md-4 padding d-flex align-items-stretch">'
+            + '<div class="card shadow-sm sechover">'
+            + '<a href="/serviceDetailes.html?serviceID=' + data[i].id_activity + '"> <img class="img-fluid padding2" src="' + data[i].image + '" alt="' + data[i].image + '"></a>'
+            + '<div class="card-body">'
+            + '<h5><b>' + data[i].title + '</b></h5>'
+            + '<h6 class="card-text">' + data[i].description.substring(0, 40) + '...' + ' <u class="linkcolor"> <a href="/serviceDetailes.html?serviceID=' + data[i].id_activity + '">more</a> </u></h6>'
+            + '<div class="d-flex justify-content-between align-items-center">  '
+            + '<small class="text-muted">Service day: ' + data[i].service_day + '</small>'
+            + '</div></div></div></div>'
+
+
 
     }
-    
-    if(0==data.length){
-        s =  '<ul class="list-group"> <li class="list-group-item">No services for this event </li> </ul>'
+
+    if (0 == data.length) {
+        s = '<ul class="list-group"> <li class="list-group-item">No services for this event </li> </ul>'
     }
-     
+
     return s;
 }
 

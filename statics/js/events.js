@@ -8,19 +8,19 @@ $(document).ready(() => {
     const selectedMonthID = urlParams.get('EventId');
     console.log(selectedMonthID);
     if (selectedMonthID == -1) {
-        fetchEvents('https://hyp-project.herokuapp.com/api/events/month');
+        fetchEvents('https://volunteeraro.herokuapp.com/api/events/month');
         document.getElementById("eventSelector").innerHTML = "Current Month Events";
     }
 
     else if (selectedMonthID == 0) {
         document.getElementById("eventSelector").innerHTML = "Latest Events";
-        fetchEvents('https://hyp-project.herokuapp.com/api/events?limit=3&order=event_date');
+        fetchEvents('https://volunteeraro.herokuapp.com/api/events?limit=3&order=event_date');
 
     }
     else if (selectedMonthID > 0) {
-        fetchEvents('https://hyp-project.herokuapp.com/api/events?month=' + parseInt(selectedMonthID));
+        fetchEvents('https://volunteeraro.herokuapp.com/api/events?month=' + parseInt(selectedMonthID));
     } else {
-        fetchEvents('https://hyp-project.herokuapp.com/api/events');
+        fetchEvents('https://volunteeraro.herokuapp.com/api/events');
     }
 
 
@@ -86,17 +86,17 @@ function eventsDropdownSelector(sel) {
     var text = $("#validationCustom03 option:selected").text();
     document.getElementById("eventSelector").innerHTML = text + " Events";
     if (x == -1)
-        fetchEvents('https://hyp-project.herokuapp.com/api/events/month');
+        fetchEvents('https://volunteeraro.herokuapp.com/api/events/month');
     else if (x == -2) {
-        fetchEvents('https://hyp-project.herokuapp.com/api/events');
+        fetchEvents('https://volunteeraro.herokuapp.com/api/events');
     }
     else if (x == 0) {
-        fetchEvents('https://hyp-project.herokuapp.com/api/events?limit=3&order=event_date');
+        fetchEvents('https://volunteeraro.herokuapp.com/api/events?limit=3&order=event_date');
     }
     else if (x > 0) {
-        fetchEvents('https://hyp-project.herokuapp.com/api/events?month=' + parseInt(x));
+        fetchEvents('https://volunteeraro.herokuapp.com/api/events?month=' + parseInt(x));
     } else {
-        fetchEvents('https://hyp-project.herokuapp.com/api/events');
+        fetchEvents('https://volunteeraro.herokuapp.com/api/events');
     }
 }
 
@@ -111,7 +111,7 @@ function fetchEvents(ApiUrl) {
         url: ApiUrl,
         type: 'GET',
         dataType: 'json',
-        Origin: "https://hyp-project.herokuapp.com",
+        Origin: "https://volunteeraro.herokuapp.com",
         success: (data) => {
             console.log('ajax success');
             var s = drawEvents(data);

@@ -8,9 +8,9 @@ $(document).ready(() => {
     console.log(personID);
     if (personID != null) {
         var temp = '';
-        var url = temp + 'https://hyp-project.herokuapp.com/api/volunteers/' + personID;
-        var urlevents = temp + 'https://hyp-project.herokuapp.com/api/volunteers/' + personID + '/events';
-        var urlservices = temp + 'https://hyp-project.herokuapp.com/api/volunteers/' + personID + '/services';
+        var url = temp + 'https://volunteeraro.herokuapp.com/api/volunteers/' + personID;
+        var urlevents = temp + 'https://volunteeraro.herokuapp.com/api/volunteers/' + personID + '/events';
+        var urlservices = temp + 'https://volunteeraro.herokuapp.com/api/volunteers/' + personID + '/services';
 
 
         fetch(url, 1);
@@ -59,15 +59,15 @@ function drawPersons(data, divId) {
         for (var i = 0; i < data.length; i++) {
 
             //s = s + '<a href="/serviceDetailes.html?serviceID=' + data[i].id_activity + '"> <li class="list-group-item ">' + data[i].title + '</li> </a>'
-            s = s    +'<div class="col-md-4 padding d-flex align-items-stretch">'
-                      +'<div class="card shadow-sm sechover">'				
-                      +'<a href="/serviceDetailes.html?serviceID='+data[i].id_activity+'"> <img class="img-fluid padding2" src="'+data[i].image+'" alt="'+data[i].image+'"></a>'
-                      +'<div class="card-body">'
-                      +'<h5><b>'+data[i].title+'</b></h5>'
-                      +'<h6 class="card-text">'+data[i].description.substring(0,40)+'...'+' <u class="linkcolor"> <a href="/serviceDetailes.html?serviceID='+data[i].id_activity+'">more</a> </u></h6>'
-                      +'<div class="d-flex justify-content-between align-items-center">  '
-                      +'<small class="text-muted">Service day: '+data[i].service_day+'</small>'
-                      +'</div></div></div></div>'
+            s = s + '<div class="col-md-4 padding d-flex align-items-stretch">'
+                + '<div class="card shadow-sm sechover">'
+                + '<a href="/serviceDetailes.html?serviceID=' + data[i].id_activity + '"> <img class="img-fluid padding2" src="' + data[i].image + '" alt="' + data[i].image + '"></a>'
+                + '<div class="card-body">'
+                + '<h5><b>' + data[i].title + '</b></h5>'
+                + '<h6 class="card-text">' + data[i].description.substring(0, 40) + '...' + ' <u class="linkcolor"> <a href="/serviceDetailes.html?serviceID=' + data[i].id_activity + '">more</a> </u></h6>'
+                + '<div class="d-flex justify-content-between align-items-center">  '
+                + '<small class="text-muted">Service day: ' + data[i].service_day + '</small>'
+                + '</div></div></div></div>'
         }
 
         if (data.length == 0) {
@@ -83,15 +83,15 @@ function drawPersons(data, divId) {
 
             //s = s + '<a href="/eventDetailes.html?eventID=' + data[i].id_activity + '"> <li class="list-group-item ">' + data[i].title + '</li> </a>'
             s = s
-            + '<div class="col-md-4 padding d-flex align-items-stretch">'
-            + '<div class="card shadow-sm sechover">'
-            + '<a href="/eventDetailes.html?eventID=' + data[i].id_activity + '"> <img class="img-fluid padding2" src="' + data[i].image + '" alt="' + data[i].image + '"></a>'
-            + '<div class="card-body">'
-            + '<h5><b>' + data[i].title + '</b></h5>'
-            + '<h6 class="card-text">' + data[i].description.substring(0, 40) + '...' + ' <u class="linkcolor"> <a href="/eventDetailes.html?eventID=' + data[i].id_activity + '">more</a> </u></h6>'
-            + '<div class="d-flex justify-content-between align-items-center">  '
-            + '<small class="text-muted">Event date: ' + data[i].event_date + '</small>'
-            + '</div></div></div></div>'
+                + '<div class="col-md-4 padding d-flex align-items-stretch">'
+                + '<div class="card shadow-sm sechover">'
+                + '<a href="/eventDetailes.html?eventID=' + data[i].id_activity + '"> <img class="img-fluid padding2" src="' + data[i].image + '" alt="' + data[i].image + '"></a>'
+                + '<div class="card-body">'
+                + '<h5><b>' + data[i].title + '</b></h5>'
+                + '<h6 class="card-text">' + data[i].description.substring(0, 40) + '...' + ' <u class="linkcolor"> <a href="/eventDetailes.html?eventID=' + data[i].id_activity + '">more</a> </u></h6>'
+                + '<div class="d-flex justify-content-between align-items-center">  '
+                + '<small class="text-muted">Event date: ' + data[i].event_date + '</small>'
+                + '</div></div></div></div>'
         }
 
         if (data.length == 0) {
@@ -115,7 +115,7 @@ function fetch(url, divId) {
         url: url,
         type: 'GET',
         dataType: 'json',
-        Origin: "https://hyp-project.herokuapp.com",
+        Origin: "https://volunteeraro.herokuapp.com",
         success: (data) => {
             console.log('ajax success');
 
