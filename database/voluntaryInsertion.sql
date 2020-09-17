@@ -5,13 +5,13 @@ INSERT INTO Persons VALUES ('4','Laura','Callahan','laura.callahan@gmail.com','H
 INSERT INTO Persons VALUES ('5','Tom','Smith','tom.smith@gmail.com','Hello my name is Tom, I manage everything related to sports in the association.','img/persons/manager5.jpg');
 
 INSERT INTO Persons VALUES ('6','Elisabeth','Martin','elisabeth.martin@gmail.com','Hello I am Elisabeth and I have been playing guitar for 5 years.','img/persons/volunteer6.jpg');
-INSERT INTO Persons VALUES ('7','Maria','Garcia','maria.garcia@gmail.com','Hello I am Maria and I have been playing piano for 8 years.','img/persons/manager7.jpg');
-INSERT INTO Persons VALUES ('8','Luca','Rossi','luca.rossi@gmail.com','Hello I am Luca and I have been playing violin for 10 years.','img/persons/manager8.jpg');
-INSERT INTO Persons VALUES ('9','Peter','Hansen','peter.hansen@gmail.com','Hello I am Peter and I have been playing flute for 3 years.','img/persons/manager9.jpg');
-INSERT INTO Persons VALUES ('10','Eveling','Ferguson','eveling.ferguson@gmail.com','Hello I am Eveling and I have been playing football since I was 5.','img/persons/manager10.jpg');
-INSERT INTO Persons VALUES ('11','Isabel','Milton','isabel.milton@gmail.com','Hello I am Isabel and I am a profesional volleyball player.','img/persons/manager11.jpg');
-INSERT INTO Persons VALUES ('12','Nick','Ward','nick.ward@gmail.com','Hello I am Nick and I am a PE professor in a high school.','img/persons/manager12.jpg');
-INSERT INTO Persons VALUES ('13','Maximo','Kemp','maximo.kemp@gmail.com','Hello I am Maximo and I am a basketball coach.','img/persons/manager13.jpg');
+INSERT INTO Persons VALUES ('7','Maria','Garcia','maria.garcia@gmail.com','Hello I am Maria and I have been playing piano for 8 years.','img/persons/volunteer7.jpg');
+INSERT INTO Persons VALUES ('8','Luca','Rossi','luca.rossi@gmail.com','Hello I am Luca and I have been playing violin for 10 years.','img/persons/volunteer8.jpg');
+INSERT INTO Persons VALUES ('9','Peter','Hansen','peter.hansen@gmail.com','Hello I am Peter and I have been playing flute for 3 years.','img/persons/volunteer9.jpg');
+INSERT INTO Persons VALUES ('10','Eveling','Ferguson','eveling.ferguson@gmail.com','Hello I am Eveling and I have been playing football since I was 5.','img/persons/volunteer10.jpg');
+INSERT INTO Persons VALUES ('11','Isabel','Milton','isabel.milton@gmail.com','Hello I am Isabel and I am a profesional volleyball player.','img/persons/volunteer11.jpg');
+INSERT INTO Persons VALUES ('12','Nick','Ward','nick.ward@gmail.com','Hello I am Nick and I am a PE professor in a high school.','img/persons/volunteer12.jpg');
+INSERT INTO Persons VALUES ('13','Maximo','Kemp','maximo.kemp@gmail.com','Hello I am Maximo and I am a basketball coach.','img/persons/volunteer13.jpg');
 
 INSERT INTO Managers VALUES ('1','+39 610000000','Association Cofounder');
 INSERT INTO Managers VALUES ('2','+39 601000000','Association Cofounder');
