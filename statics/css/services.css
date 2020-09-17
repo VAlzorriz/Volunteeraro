@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+@import url('https://fonts.googleapis.com/css?family=Dosis:400,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+body {
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.padding {
+  padding: 23px;
+}
+
+.padding2 {
+  padding: 3px;
+}
+
+.big {
+	font-weight: bolder;
+	font-size: 70px;
+}
+
+.white {
+	color: white;
+}
+
+.middle-w3l {
+	width: auto; 
+	background: url(https://images.unsplash.com/photo-1547347298-4074fc3086f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80) no-repeat fixed;
+	background-size: cover;
+	padding-top: 15%;
+	padding-bottom: 15%;
+	padding-left: 5%;
+	padding-right: 5%;
+	background-position: center top;
+}
+
+.header-image {
+	background-size: cover;
+	background-position: center;
+}

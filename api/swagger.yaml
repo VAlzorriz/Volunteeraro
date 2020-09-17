@@ -1,0 +1,823 @@
+---
+swagger: "2.0"
+info:
+  description: "This is the API for the webpage of our voluntary association."
+  version: "1.0.0"
+  title: "Voluntary Association API"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "victoralzorriz@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "volunteeraro.herokuapp.com"
+basePath: "/api"
+tags:
+- name: "Manager"
+  description: "Operations about the managers of the association"
+- name: "Volunteer"
+  description: "Operations about the volunteers of the association"
+- name: "Event"
+  description: "Everything about the events of the association"
+- name: "Service"
+  description: "Everything about the services of the association"
+- name: "Category"
+  description: "Everything about the categories of services of the association"
+schemes:
+- "https"
+paths:
+  /managers:
+    get:
+      tags:
+      - "Manager"
+      summary: "Managers enroll in the association"
+      description: "Returns a list of managers"
+      operationId: "managersGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "This is de number of items retrived"
+        required: false
+        type: "integer"
+      - name: "offset"
+        in: "query"
+        description: "Pagination offset, by default is 0"
+        required: false
+        type: "integer"
+      - name: "surename"
+        in: "query"
+        description: "Text search between managers by surename"
+        required: false
+        type: "string"
+      responses:
+        "200":
+          description: "A collection of managers"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Manager"
+        "404":
+          description: "Unexpected error"
+      x-swagger-router-controller: "Manager"
+  /managers/{managerId}:
+    get:
+      tags:
+      - "Manager"
+      summary: "Find a manager by ID"
+      description: "Returns a manager"
+      operationId: "managersManagerIdGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "managerId"
+        in: "path"
+        description: "ID of manager to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "A manager with the ID"
+          schema:
+            $ref: "#/definitions/Manager"
+        "404":
+          description: "Manager not found"
+      x-swagger-router-controller: "Manager"
+  /managers/{managerId}/events:
+    get:
+      tags:
+      - "Manager"
+      summary: "Events organized by the manager with ID"
+      description: "Returns list of events"
+      operationId: "managersManagerIdEventsGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "managerId"
+        in: "path"
+        description: "ID of manager to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: "limit"
+        in: "query"
+        description: "This is de number of items retrived"
+        required: false
+        type: "integer"
+      - name: "offset"
+        in: "query"
+        description: "Pagination offset, by default is 0"
+        required: false
+        type: "integer"
+      responses:
+        "200":
+          description: "A collection of events"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Event"
+        "404":
+          description: "Events not found"
+      x-swagger-router-controller: "Manager"
+  /volunteers:
+    get:
+      tags:
+      - "Volunteer"
+      summary: "Volunteers enroll in the association"
+      description: "Returns a list of volunteers"
+      operationId: "volunteersGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "This is de number of items retrived"
+        required: false
+        type: "integer"
+      - name: "offset"
+        in: "query"
+        description: "Pagination offset, by default is 0"
+        required: false
+        type: "integer"
+      - name: "surename"
+        in: "query"
+        description: "Text search between volunteers by surename"
+        required: false
+        type: "string"
+      responses:
+        "200":
+          description: "A collection of volunteers"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Volunteer"
+        "404":
+          description: "Unexpected error"
+      x-swagger-router-controller: "Volunteer"
+  /volunteers/{volunteerId}:
+    get:
+      tags:
+      - "Volunteer"
+      summary: "Find a volunteer by ID"
+      description: "Returns a volunteer"
+      operationId: "volunteersVolunteerIdGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "volunteerId"
+        in: "path"
+        description: "ID of volunteer to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "A volunteer with the ID"
+          schema:
+            $ref: "#/definitions/Volunteer"
+        "404":
+          description: "Volunteer not found"
+      x-swagger-router-controller: "Volunteer"
+  /volunteers/{volunteerId}/events:
+    get:
+      tags:
+      - "Volunteer"
+      summary: "Events in which participates the volunteer with ID"
+      description: "Returns a list of events"
+      operationId: "volunteersVolunteerIdEventsGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "volunteerId"
+        in: "path"
+        description: "ID of volunteer to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: "limit"
+        in: "query"
+        description: "This is de number of items retrived"
+        required: false
+        type: "integer"
+      - name: "offset"
+        in: "query"
+        description: "Pagination offset, by default is 0"
+        required: false
+        type: "integer"
+      responses:
+        "200":
+          description: "A collection of events"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Event"
+        "404":
+          description: "Events not found"
+      x-swagger-router-controller: "Volunteer"
+  /volunteers/{volunteerId}/services:
+    get:
+      tags:
+      - "Volunteer"
+      summary: "Services in which participates the volunteer with ID"
+      description: "Returns a list of services"
+      operationId: "volunteersVolunteerIdServicesGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "volunteerId"
+        in: "path"
+        description: "ID of volunteer to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: "limit"
+        in: "query"
+        description: "This is de number of items retrived"
+        required: false
+        type: "integer"
+      - name: "offset"
+        in: "query"
+        description: "Pagination offset, by default is 0"
+        required: false
+        type: "integer"
+      responses:
+        "200":
+          description: "A collection of services"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Service"
+        "404":
+          description: "Services not found"
+      x-swagger-router-controller: "Volunteer"
+  /events:
+    get:
+      tags:
+      - "Event"
+      summary: "Events organized by the association"
+      description: "Returns a list of events"
+      operationId: "eventsGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "This is de number of items retrived"
+        required: false
+        type: "integer"
+      - name: "offset"
+        in: "query"
+        description: "Pagination offset, by default is 0"
+        required: false
+        type: "integer"
+      - name: "date"
+        in: "query"
+        description: "Text search between events by date"
+        required: false
+        type: "string"
+      - name: "manager"
+        in: "query"
+        description: "Text search between events by id of the manager who organizes\
+          \ it"
+        required: false
+        type: "integer"
+      - name: "service"
+        in: "query"
+        description: "Text search between events by service"
+        required: false
+        type: "string"
+      - name: "order"
+        in: "query"
+        description: "Order the events by selected field in descending order"
+        required: false
+        type: "string"
+      - name: "month"
+        in: "query"
+        description: "Text search between events by month of the year"
+        required: false
+        type: "integer"
+      responses:
+        "200":
+          description: "A collection of events"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Event"
+        "404":
+          description: "Unexpected error"
+      x-swagger-router-controller: "Event"
+  /events/month:
+    get:
+      tags:
+      - "Event"
+      summary: "Events organized by the association this month"
+      description: "Returns a list of events"
+      operationId: "eventsMonthGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "This is de number of items retrived"
+        required: false
+        type: "integer"
+      - name: "offset"
+        in: "query"
+        description: "Pagination offset, by default is 0"
+        required: false
+        type: "integer"
+      responses:
+        "200":
+          description: "A collection of events"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Event"
+        "404":
+          description: "Events not found"
+      x-swagger-router-controller: "Event"
+  /events/{eventId}:
+    get:
+      tags:
+      - "Event"
+      summary: "Find a events by ID"
+      description: "Returns a event"
+      operationId: "eventsEventIdGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "eventId"
+        in: "path"
+        description: "ID of event to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "A event with the ID"
+          schema:
+            $ref: "#/definitions/Event"
+        "404":
+          description: "Event not found"
+      x-swagger-router-controller: "Event"
+  /events/{eventId}/volunteers:
+    get:
+      tags:
+      - "Event"
+      summary: "Volunteers that participates in the event with ID"
+      description: "Returns a list of volunteers"
+      operationId: "eventsEventIdVolunteersGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "eventId"
+        in: "path"
+        description: "ID of event to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "A collection of volunteers"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Volunteer"
+        "404":
+          description: "Volunteers not found"
+      x-swagger-router-controller: "Event"
+  /events/{eventId}/services:
+    get:
+      tags:
+      - "Event"
+      summary: "Services realted with the event with ID"
+      description: "Returns a list of services"
+      operationId: "eventsEventIdServicesGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "eventId"
+        in: "path"
+        description: "ID of event to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "A collection of services"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Service"
+        "404":
+          description: "Services not found"
+      x-swagger-router-controller: "Event" 
+  /services:
+    get:
+      tags:
+      - "Service"
+      summary: "Services offered by the association"
+      description: "Returns a list of services"
+      operationId: "servicesGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "This is de number of items retrived"
+        required: false
+        type: "integer"
+      - name: "offset"
+        in: "query"
+        description: "Pagination offset, by default is 0"
+        required: false
+        type: "integer"
+      - name: "day"
+        in: "query"
+        description: "Text search between events by day"
+        required: false
+        type: "string"
+      - name: "age"
+        in: "query"
+        description: "Text search between services by age"
+        required: false
+        type: "integer"
+      - name: "category"
+        in: "query"
+        description: "Text search between events by id of category"
+        required: false
+        type: "integer"
+      responses:
+        "200":
+          description: "A collection of services"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Service"
+        "404":
+          description: "Unexpected error"
+      x-swagger-router-controller: "Service"
+  /services/{serviceId}:
+    get:
+      tags:
+      - "Service"
+      summary: "Find a service by ID"
+      description: "Returns a service"
+      operationId: "servicesServiceIdGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "serviceId"
+        in: "path"
+        description: "ID of service to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "A service with the ID"
+          schema:
+            $ref: "#/definitions/Service"
+        "404":
+          description: "Service not found"
+      x-swagger-router-controller: "Service"
+  /services/{serviceId}/volunteers:
+    get:
+      tags:
+      - "Service"
+      summary: "Volunteers that participates in the service with ID"
+      description: "Returns a list of volunteers"
+      operationId: "servicesServiceIdVolunteersGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "serviceId"
+        in: "path"
+        description: "ID of service to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "A collection of volunteers"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Volunteer"
+        "404":
+          description: "Volunteers not found"
+      x-swagger-router-controller: "Service"
+  /services/{serviceId}/events:
+    get:
+      tags:
+      - "Service"
+      summary: "Events realted to the service with ID"
+      description: "Returns a list of events"
+      operationId: "servicesServiceIdEventsGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "serviceId"
+        in: "path"
+        description: "ID of service to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "A collection of events"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Event"
+        "404":
+          description: "Events not found"
+      x-swagger-router-controller: "Service"
+  /categories:
+    get:
+      tags:
+      - "Category"
+      summary: "Categories of the services offered by the association"
+      description: "Returns a list of categories"
+      operationId: "categoriesGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "This is de number of items retrived"
+        required: false
+        type: "integer"
+      - name: "offset"
+        in: "query"
+        description: "Pagination offset, by default is 0"
+        required: false
+        type: "integer"
+      - name: "name"
+        in: "query"
+        description: "Text search between categories by name"
+        required: false
+        type: "string"
+      responses:
+        "200":
+          description: "A collection of categories"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Category"
+        "404":
+          description: "Unexpected error"
+      x-swagger-router-controller: "Category"
+  /categories/{categoryId}:
+    get:
+      tags:
+      - "Category"
+      summary: "Find a category by ID"
+      description: "Returns a category"
+      operationId: "categoriesCategoryIdGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "categoryId"
+        in: "path"
+        description: "ID of category to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "A category with the ID"
+          schema:
+            $ref: "#/definitions/Category"
+        "404":
+          description: "Category not found"
+      x-swagger-router-controller: "Category"
+  /categories/{categoryId}/services:
+    get:
+      tags:
+      - "Category"
+      summary: "Services of the category offered by the association"
+      description: "Returns a list of services"
+      operationId: "categoriesCategoryIdServicesGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "categoryId"
+        in: "path"
+        description: "ID of category to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "A collection of services"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Service"
+        "404":
+          description: "Category not found"
+      x-swagger-router-controller: "Category"
+definitions:
+  Manager:
+    type: "object"
+    properties:
+      id_person:
+        type: "integer"
+        format: "int64"
+        example: 1
+      name:
+        type: "string"
+        example: "Victor"
+      surename:
+        type: "string"
+        example: "Alzorriz"
+      email:
+        type: "string"
+        example: "victoralzorriz@gmail.com"
+      description:
+        type: "string"
+        example: "Hello my name is Victor and I am a manager"
+      photo:
+        type: "string"
+        example: "photo.png"
+      phone:
+        type: "string"
+        example: "+34 639301700"
+      role:
+        type: "string"
+        example: "Event manager"
+    title: "Manager"
+    description: "One of the managers of the association"
+    example:
+      id_person: 1
+      role: "Event manager"
+      phone: "+34 639301700"
+      name: "Victor"
+      description: "Hello my name is Victor and I am a manager"
+      photo: "photo.png"
+      surename: "Alzorriz"
+      email: "victoralzorriz@gmail.com"
+  Volunteer:
+    type: "object"
+    properties:
+      id_person:
+        type: "integer"
+        format: "int64"
+        example: 1
+      name:
+        type: "string"
+        example: "Victor"
+      surename:
+        type: "string"
+        example: "Alzorriz"
+      email:
+        type: "string"
+        example: "victoralzorriz@gmail.com"
+      description:
+        type: "string"
+        example: "Hello my name is Victor and I am a volunteer"
+      photo:
+        type: "string"
+        example: "photo.png"
+      volunteer_time:
+        type: "string"
+        example: "2018-01-01"
+    title: "Volunteer"
+    description: "One of the volunteers of the association"
+    example:
+      id_person: 1
+      name: "Victor"
+      description: "Hello my name is Victor and I am a volunteer"
+      photo: "photo.png"
+      volunteer_time: "2018-01-01"
+      surename: "Alzorriz"
+      email: "victoralzorriz@gmail.com"
+  Event:
+    type: "object"
+    properties:
+      id_activity:
+        type: "integer"
+        format: "int64"
+        example: 1
+      location:
+        type: "string"
+        example: "Park Avenue 20"
+      title:
+        type: "string"
+        example: "Football tournament"
+      description:
+        type: "string"
+        example: "We will do a football tournament and the winner team will get a\
+          \ free dinner"
+      start_time:
+        type: "string"
+        example: "16:30:00"
+      end_time:
+        type: "string"
+        example: "18:30:00"
+      image:
+        type: "string"
+        example: "image.png"
+      event_date:
+        type: "string"
+        example: "2020-01-01"
+      id_manager:
+        type: "integer"
+        example: 1
+      id_service:
+        type: "integer"
+        example: 2
+    title: "Event"
+    description: "One of the events organized by the association"
+    example:
+      start_time: "16:30:00"
+      image: "image.png"
+      event_date: "2020-01-01"
+      end_time: "18:30:00"
+      description: "We will do a football tournament and the winner team will get\
+        \ a free dinner"
+      location: "Park Avenue 20"
+      id_manager: 1
+      title: "Football tournament"
+      id_activity: 1
+      id_service: 2
+  Service:
+    type: "object"
+    properties:
+      id_activity:
+        type: "integer"
+        format: "int64"
+        example: 1
+      location:
+        type: "string"
+        example: "Park Avenue 20"
+      title:
+        type: "string"
+        example: "Guitar practice"
+      description:
+        type: "string"
+        example: "A music class to improve your guitar skill"
+      start_time:
+        type: "string"
+        example: "16:30:00"
+      end_time:
+        type: "string"
+        example: "18:30:00"
+      image:
+        type: "string"
+        example: "image.png"
+      day:
+        type: "string"
+        enum:
+        - "Monday"
+        - "Tuesday"
+        - "Wednesday"
+        - "Thursday"
+        - "Friday"
+        - "Saturday"
+        - "Sunday"
+      capacity:
+        type: "integer"
+        example: 20
+      age:
+        type: "integer"
+        example: 12
+      id_category:
+        type: "integer"
+        example: 1
+    title: "Service"
+    description: "One of the events organized by the association"
+    example:
+      start_time: "16:30:00"
+      image: "image.png"
+      id_category: 1
+      end_time: "18:30:00"
+      description: "A music class to improve your guitar skill"
+      location: "Park Avenue 20"
+      title: "Guitar practice"
+      id_activity: 1
+      day: "Monday"
+      age: 12
+      capacity: 20
+  Category:
+    type: "object"
+    properties:
+      id_category:
+        type: "integer"
+        format: "int64"
+        example: 1
+      title:
+        type: "string"
+        example: "Music"
+      description:
+        type: "string"
+        example: "Activities related to music"
+    title: "Category"
+    description: "One of the category of services organized by the association"
+    example:
+      id_category: 1
+      description: "Activities related to music"
+      title: "Music"

@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Registration page</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link rel="stylesheet" type="text/css" href="css/registration.css">
+
+</head>
+
+<body>
+
+    <!--   ================================================== -->
+    <!--   ================== HEADER =========================== -->
+
+    <header id="headerContent">
+        <nav class="navbar navbar-expand-md  navbar-dark fixed-top"
+            style="background: -webkit-linear-gradient(left, #3AAFA5, #4FAF8B);">
+            
+            <a href="#" class="navbar-brand">
+                <img src="img/logo.png" height="35" alt="logo">
+            </a>
+
+            <button type="button" aria-label="button" class="navbar-toggler" data-toggle="collapse"
+                data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav">
+
+                    <a href="index.html" class="nav-item nav-link ">HOME</a>
+
+                    <a href="contact.html" class="nav-item nav-link">CONTACTS</a>
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">SERVICES</a>
+                        <div class="dropdown-menu">
+                            <a href="/services.html" class="dropdown-item">ALL Services</a>
+                            <a href="/services.html?CategoryId=1" class="dropdown-item">Music Services</a>
+                            <a href="/services.html?CategoryId=2" class="dropdown-item">Sport Services</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">EVENTS</a>
+                        <div class="dropdown-menu">
+                            <a href="/events.html" class="dropdown-item">ALL Events</a>
+                            <a href="/events.html?EventId=0" class="dropdown-item">Latest Events</a>
+                            <a href="/events.html?EventId=-1" class="dropdown-item">Current Month Events</a>
+                        </div>
+                    </div>
+
+                    <a href="persons.html" class="nav-item nav-link">PERSONS</a>
+
+                </div>
+                <div class="navbar-nav">
+                    <a href="terms.html" class="btn btn-outline-light active">Register</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!--   ================================================== -->
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="/terms.html">Terms and conditions</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Registration</li>
+        </ol>
+    </nav>
+
+    <!--   ================================================== -->
+
+    <label id="Label1" for="input1" />
+    <label id="Label2" for="input2" />
+    <label id="Label3" for="input3" />
+    <label id="Label4" for="input4" />
+    <label id="Label5" for="input5" />
+    <label id="Label6" for="input6" />
+    <label id="Label7" for="input7" />
+    <label id="Label8" for="input8" />
+    <label id="Label9" for="input9" />
+    <label id="Label10" for="input10" />
+    <label id="Label11" for="input11" />
+    <label id="Label12" for="input12" />
+    <label id="Label13" for="input13" />
+
+    <div class="container register">
+        <div class="row">
+
+            <div class="col-md-3 register-left">
+                <img src="img/register.png" class="reg" alt="" />
+                <h3>Registration.</h3>
+            </div>
+
+            <div class="col-md-9 register-right">
+                <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                            aria-controls="home" aria-selected="true">Participant</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                            aria-controls="profile" aria-selected="false">Volunteer</a>
+                    </li>
+
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <h3 class="register-heading">Apply as a Participant</h3>
+
+                        <div class="row register-form">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input id="input1" type="text" class="form-control" placeholder="Full name *"
+                                        value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input id="input2" type="email" class="form-control" placeholder="Email *"
+                                        value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input id="input3" type="country" class="form-control" placeholder="Country *"
+                                        value="" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input id="input4" type="tax code" class="form-control" placeholder="Tax code *"
+                                        value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input id="input5" type="text" minlength="10" maxlength="10" name="txtEmpPhone"
+                                        class="form-control" placeholder="Phone Number *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input id="input6" type="submit" class="btnRegister" value="Register" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <h3 class="register-heading">Apply as a Volunteer</h3>
+                        <div class="row register-form">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input id="input7" type="text" class="form-control" placeholder="Full Name *"
+                                        value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input id="input8" type="email" class="form-control" placeholder="Email Address*"
+                                        value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input id="input9" type="text" class="form-control" placeholder="Country *"
+                                        value="" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input id="input10" type="text" class="form-control"
+                                        placeholder="Phone number *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input id="input11" type="text" class="form-control"
+                                        placeholder="Tax code number *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input id="input13" type="text" class="form-control"
+                                        placeholder="Passport number *" value="" />
+                                </div>
+                                <div class="text-align-left">
+                                    <input id="vehicle1" type="checkbox" name="vehicle1" value="Bike">
+                                    <label for="vehicle1"> I declare the truth of the information. </label>
+                                </div>
+                                <div class="form-group">
+                                    <input id="input12" type="submit" class="btnRegister"
+                                        value="Register" />
+                                </div>
+                            </div>
+
+                            <!--
+                            <div class="col-md-6">
+                                <div class="dropdown">
+                                    <div class="form-group">
+                                        <input id="input10" type="text" class="form-control"
+                                            placeholder="Phone number *" value="" />
+                                    </div>
+                                    <div class="dropdown">
+                                        <div class="form-group">
+                                            <input id="input11" type="text" class="form-control"
+                                                placeholder="Tax code number *" value="" />
+                                        </div>
+                                        <div class="dropdown">
+                                            <div class="form-group">
+                                                <input id="input13" type="text" class="form-control"
+                                                    placeholder="Passport number *" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <input id="input12" type="submit" class="btnRegister"
+                                                    value="Register" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            -->
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--   ================================================== -->
+    <!--   ============Footer ====================== -->
+
+
+
+    <div class="mt-5 footer-distributed">
+
+        <div class="footer-left">
+            <img src="img/logo.png" height="50" alt="logo">
+            <p class="footer-links">
+                <a href="/index.html" class="link-1">Home</a>
+                <a href="/contact.html">About Us</a>
+                <a href="/terms.html">Terms & conditon</a>
+            </p>
+            <p class="footer-company-name">Volunterraro © 2020</p>
+        </div>
+
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>Piazza Leonardo da Vinci , 32</span>20133 Milano MI</p>
+            </div>
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+39 351 646 6699</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:support@company.com" style="color:#FFFFFF;">support@volunterraro.com</a></p>
+            </div>
+        </div>
+
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span>Follow Us </span>
+            </p>
+            <div class="footer-icons">
+                <a href="facebook.com" aria-label="first link"><i class="fa fa-facebook"></i></a>
+                <a href="twitter.com" aria-label="first link"><i class="fa fa-twitter"></i></a>
+                <a href="linkedin.com" aria-label="first link"><i class="fa fa-linkedin"></i></a>
+                <a href="github.com" aria-label="first link"><i class="fa fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!--   ================================================== -->
+    <!--   ================================================== -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
